@@ -2,7 +2,7 @@
 알아둘것
 * chromedriver는 각 arch별로 다운받아 지정할것 (default: arm64)
 * https://chromedriver.chromium.org/downloads
-* Naver, Google 로그인 안됨
+* Naver, Google 로그인 됨!!!
 
 사전준비
 * python3 -m venv env
