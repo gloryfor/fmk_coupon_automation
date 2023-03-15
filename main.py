@@ -13,16 +13,13 @@ nexon_id_dict = [
 
 google_id_dict = [
     {'id': 'input_id'},
-    {'id': 'input_id'},
-    {'id': 'input_id'},
     {'id': 'input_id'}
 ]
 
-coupon_names = ["U20아시안컵토너먼트시작"]
+coupon_names = ["부상없이후회없이U20아시안컵"]
 
 
 def register_coupon(coupon_name, driver):
-    sleep(2)
     driver.find_element(By.ID, 'strCoupon').clear()
     driver.find_element(By.ID, 'strCoupon').send_keys(coupon_name)
     sleep(1)
@@ -36,20 +33,20 @@ def login_nexon(e_nexon, driver):
     driver.find_element(By.ID, 'txtNexonID').send_keys(e_nexon['id'])
     driver.find_element(By.ID, 'txtPWD').send_keys(e_nexon['pw'])
     driver.find_element(By.CSS_SELECTOR, 'div.btLogin button.button01').click()
-    sleep(3)
+    sleep(2)
 
 
 def login_naver(driver):
     sleep(1)
     driver.find_element(By.CSS_SELECTOR, 'button.btNaver').click()
-    sleep(3)
+    sleep(2)
 
 
 def login_google(e_google, driver):
     driver.find_element(By.CSS_SELECTOR, 'button.btGoogle').click()
     sleep(1)
     driver.find_element(By.CSS_SELECTOR, "div[data-identifier='%s']" % (e_google['id'])).click()
-    sleep(3)
+    sleep(2)
 
 
 def logout(driver):
