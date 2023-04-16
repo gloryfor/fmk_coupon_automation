@@ -25,7 +25,8 @@ def register_coupon(coupon_name, driver):
     sleep(1)
     driver.find_element(By.ID, 'btnReg').click()
     sleep(1)
-    driver.find_element(By.ID, 'btnCommonCfm').click()
+    # driver.find_element(By.ID, 'btnCommonCfm').click()
+    driver.find_element(By.CSS_SELECTOR, "div.complete div.button button.btn_type_blue").click()
     sleep(1)
 
 
@@ -67,7 +68,7 @@ if __name__ == '__main__':
             register_coupon(coupon_name, localDriver)
         logout(localDriver)
 
-    ## Naver 계정
+    # Naver 계정
     login_naver(remoteDriver)
     for coupon_name in coupon_names:
         register_coupon(coupon_name, remoteDriver)
