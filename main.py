@@ -32,15 +32,16 @@ def register_coupon_auto(driver):
     manager_name = driver.find_element(By.CSS_SELECTOR, "div#coupon div.user p").text
     avail_coupons = driver.find_elements(By.CSS_SELECTOR, "div#coupon li.active button")
 
-    if avail_coupons is None:
+    if len(avail_coupons) == 0:
         print(f"사용가능한 쿠폰이 없습니다.({manager_name})")
         return
 
-    for avail_coupon in avail_coupons:
-        click_element(avail_coupon)
+    while len(avail_coupons) > 0:
+        click_element(avail_coupons[0])
         click_element(driver.find_element(By.ID, 'cbtn_cfm'))
         click_element(driver.find_element(By.ID, 'btnReg'))
         click_element(driver.find_element(By.CSS_SELECTOR, "div.complete div.button button.btn_type_blue"))
+        avail_coupons = driver.find_elements(By.CSS_SELECTOR, "div#coupon li.active button")
 
 
 def login_nexon(e_nexon, driver):
