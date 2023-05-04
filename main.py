@@ -40,7 +40,7 @@ def register_coupon_auto(driver):
         click_element(avail_coupons[0])
         click_element(driver.find_element(By.ID, 'cbtn_cfm'))
         click_element(driver.find_element(By.ID, 'btnReg'))
-        click_element(driver.find_element(By.CSS_SELECTOR, "div.complete div.button button.btn_type_blue"))
+        click_element(driver.find_element(By.CSS_SELECTOR, "div.complete div.button"))
         avail_coupons = driver.find_elements(By.CSS_SELECTOR, "div#coupon li.active button")
 
 
