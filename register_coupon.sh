@@ -10,6 +10,8 @@ sleep 3
 
 source venv/bin/activate
 python3 ./main.py -a
+#python3 ./main.py -c 엘살바도르의수도는산살바도르
+
 deactivate
 
 ## Chrome 종료

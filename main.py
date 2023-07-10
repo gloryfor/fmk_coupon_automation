@@ -1,5 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
 from optparse import OptionParser
 
@@ -45,7 +47,9 @@ def register_coupon_auto(driver):
 
 
 def login_nexon(e_nexon, driver):
+    driver.find_element(By.ID, 'txtNexonID').clear()
     driver.find_element(By.ID, 'txtNexonID').send_keys(e_nexon['id'])
+    driver.find_element(By.ID, 'txtPWD').clear()
     driver.find_element(By.ID, 'txtPWD').send_keys(e_nexon['pw'])
     click_element(driver.find_element(By.CSS_SELECTOR, 'div.btLogin button.button01'), delay=2)
 
@@ -66,15 +70,12 @@ def logout(driver):
 def load_chromedriver():
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
-    remote_driver = webdriver.Chrome('./misc/chrome/chromedriver', chrome_options=chrome_options)
-    local_driver = webdriver.Chrome('./misc/chrome/chromedriver')
+    remote_driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
     remote_driver.implicitly_wait(3)
     remote_driver.get('https://fifamobile.nexon.com/Coupon/Index')
 
-    local_driver.implicitly_wait(3)
-    local_driver.get('https://fifamobile.nexon.com/Coupon/Index')
-    return local_driver, remote_driver
+    return remote_driver
 
 
 def register_nexon_account(nexon_id_dicts, driver, coupon_name, automatic):
@@ -113,9 +114,9 @@ def main():
     parser.add_option("-c", "--coupon", metavar="COUPON_NAME", dest="coupon_name")
     (options, args) = parser.parse_args()
 
-    (local_driver, remote_driver) = load_chromedriver()
+    remote_driver = load_chromedriver()
 
-    register_nexon_account(nexon_id_dict, local_driver, options.coupon_name, options.automatic)
+    register_nexon_account(nexon_id_dict, remote_driver, options.coupon_name, options.automatic)
 
     register_naver_account(remote_driver, options.coupon_name, options.automatic)
 

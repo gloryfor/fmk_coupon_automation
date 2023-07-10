@@ -1,7 +1,7 @@
 
 알아둘것
-* chromedriver는 각 arch별로 다운받아 지정할것 (default: arm64)
-* https://chromedriver.chromium.org/downloads
+* ~~chromedriver는 각 arch별로 다운받아 지정할것 (default: arm64)~~  이제 안받아도 됩니다.
+* ~~https://chromedriver.chromium.org/downloads~~
 * Naver, Google 로그인 됨!!!
 
 사전준비
