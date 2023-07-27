@@ -12,3 +12,11 @@
 
 Chrome 현재창에서 selenium 스크립트 실행을 위해 
 * /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
+
+
+venv pip 패키지 업그레이드
+```bash
+(venv) pip3 install --upgrade pip
+(venv) pip3 install -r requirements.txt --upgrade
+(venv) pip3 freeze > ./requirements.txt
+```
