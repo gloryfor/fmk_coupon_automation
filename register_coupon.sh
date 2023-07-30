@@ -10,7 +10,7 @@ sleep 3
 
 source venv/bin/activate
 python3 ./main.py -a
-#python3 ./main.py -c 엘살바도르의수도는산살바도르
+#python3 ./main.py -c 나맨시T야 -c 쿠폰2 -c 쿠폰3
 
 deactivate
 
