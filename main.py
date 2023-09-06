@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -52,9 +53,16 @@ def register_coupon_auto(driver):
 
 
 def login_nexon(e_nexon, driver):
+    driver.find_element(By.ID, 'txtNexonID').send_keys(Keys.DELETE)
+    sleep(2)
     driver.find_element(By.ID, 'txtNexonID').clear()
+    sleep(2)
     driver.find_element(By.ID, 'txtNexonID').send_keys(e_nexon['id'])
+
+    driver.find_element(By.ID, 'txtNexonID').send_keys(Keys.DELETE)
+    sleep(2)
     driver.find_element(By.ID, 'txtPWD').clear()
+    sleep(2)
     driver.find_element(By.ID, 'txtPWD').send_keys(e_nexon['pw'])
     click_element(driver.find_element(By.CSS_SELECTOR, 'div.btLogin button.button01'), delay=3)
 
