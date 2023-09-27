@@ -90,7 +90,7 @@ def load_chromedriver():
     remote_driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
     remote_driver.implicitly_wait(3)
-    remote_driver.get('https://fifamobile.nexon.com/Coupon/Index')
+    remote_driver.get('https://fcmobile.nexon.com/Coupon/Index')
 
     return remote_driver
 
