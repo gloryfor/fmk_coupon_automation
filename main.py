@@ -69,6 +69,7 @@ def login_nexon(e_nexon, driver):
 
 def login_facebook(driver):
     click_element(driver.find_element(By.CSS_SELECTOR, 'button.btFacebook'), delay=3)
+    click_element(driver.find_element(By.CSS_SELECTOR, "div[role='button']"), delay=5)
 
 
 def login_naver(driver):
